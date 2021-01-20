@@ -1,2 +1,2 @@
-# Be.Stateless.BizTalk.Artifacts.Deployment
+# Be.Stateless.BizTalk.Factory.Artifacts.Deployment
 Deployment for BizTalk Factory Artifacts

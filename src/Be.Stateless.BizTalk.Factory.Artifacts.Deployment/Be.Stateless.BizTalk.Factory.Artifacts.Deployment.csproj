@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.Build.NoTargets/2.0.1">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ExcludedBizTalkFactoryAssets>
+      Be.Stateless.BizTalk.Abstractions;
+      Be.Stateless.BizTalk.Messaging;
+      Be.Stateless.BizTalk.Pipeline.MicroComponents;
+      Be.Stateless.BizTalk.Stream;
+      Be.Stateless.BizTalk.Xml;
+      Be.Stateless.Extensions;
+      Be.Stateless.Common;
+      Be.Stateless.Stream;
+      Be.Stateless.Xml
+    </ExcludedBizTalkFactoryAssets>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Be.Stateless.BizTalk.Pipeline.Components" Version="2.0.21012.20459" />
+    <PackageReference Include="Be.Stateless.BizTalk.Pipelines" Version="2.0.21020.27060" />
+    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21019.9733" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="$(ExcludedBizTalkFactoryAssets)" Version="2.*" ExcludeAssets="all" />
+    <PackageReference Include="log4net" Version="2.*" ExcludeAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Be.Stateless.BizTalk.Factory.Binding\Be.Stateless.BizTalk.Factory.Binding.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Manifest.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

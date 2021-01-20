@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>Be.Stateless.BizTalk</RootNamespace>
+    <AssemblyName>Be.Stateless.BizTalk.Factory.Binding</AssemblyName>
+    <Description>BizTalk.Factory's application bindings.</Description>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/icraftsoftware/Be.Stateless.BizTalk.Factory.Artifacts.Deployment</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true'">true</ContinuousIntegrationBuild>
+    <Deterministic>true</Deterministic>
+    <GeneratePackageOnBuild Condition=" '$(GeneratePackageOnBuild)' == '' ">false</GeneratePackageOnBuild>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DocumentationFile>bin\Release\$(AssemblyName).xml</DocumentationFile>
+    <NoWarn>1701;1702</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\.settings\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Be.Stateless.BizTalk.Abstractions" Version="2.0.21007.39752" />
+    <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21020.1792" />
+    <PackageReference Include="Be.Stateless.BizTalk.Dsl.Binding" Version="2.0.21018.35816" />
+    <PackageReference Include="Be.Stateless.BizTalk.Dsl.Binding.Conventions" Version="2.0.21018.35816" />
+    <PackageReference Include="Be.Stateless.BizTalk.Dsl.Pipeline" Version="2.0.21012.60359" />
+    <PackageReference Include="Be.Stateless.BizTalk.Pipeline.Components" Version="2.0.21012.20459" />
+    <PackageReference Include="Be.Stateless.BizTalk.Pipeline.MicroComponents" Version="2.0.21012.19670" />
+    <PackageReference Include="Be.Stateless.BizTalk.Pipelines" Version="2.0.21020.27060" />
+    <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="BizTalk.Server.2020.Runtime.Adapters" Version="1.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
