@@ -20,7 +20,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Be.Stateless.BizTalk.Dsl.Binding;
-using Be.Stateless.BizTalk.Settings;
+using Be.Stateless.BizTalk.Factory.Environment.Settings;
 using FluentAssertions;
 using Xunit;
 using static Be.Stateless.Unit.DelegateFactory;

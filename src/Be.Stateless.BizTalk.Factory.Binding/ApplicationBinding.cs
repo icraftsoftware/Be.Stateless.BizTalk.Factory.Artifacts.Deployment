@@ -17,19 +17,19 @@
 #endregion
 
 using System.Diagnostics.CodeAnalysis;
-using Be.Stateless.BizTalk.Dsl.Binding.Convention.Constants;
+using Be.Stateless.BizTalk.Dsl.Binding.Convention;
 using Be.Stateless.BizTalk.Dsl.Binding.Convention.Simple;
-using Be.Stateless.BizTalk.Settings;
+using Be.Stateless.BizTalk.Factory.Environment.Settings;
 
 namespace Be.Stateless.BizTalk
 {
-	public class ApplicationBinding : Dsl.Binding.Convention.ApplicationBinding<NamingConvention>
+	public class ApplicationBinding : ApplicationBinding<NamingConvention>
 	{
 		public ApplicationBinding()
 		{
 			Name = ApplicationName.Is(BizTalkFactory.Settings.ApplicationName);
 			Description = "be.stateless BizTalk.Factory's comprehensive Microsoft BizTalk Server runtime.";
-			SendPorts.Add(new SinkFailedMessageSendPort());
+			SendPorts.Add(new FailedMessageSinkPort());
 		}
 
 		#region Base Class Member Overrides
@@ -39,8 +39,8 @@ namespace Be.Stateless.BizTalk
 		{
 			if (environment.IsDevelopmentOrBuild())
 			{
-				ReceivePorts.Add(new DummyReceivePort());
-				SendPorts.Add(new DummyServiceSendPort());
+				ReceivePorts.Add(new OneWayReceivePortStub());
+				SendPorts.Add(new TwoWaySoapSendPortStub());
 			}
 		}
 

@@ -19,7 +19,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Be.Stateless.BizTalk.Dsl.Environment.Settings;
 
-namespace Be.Stateless.BizTalk.Settings
+namespace Be.Stateless.BizTalk.Factory.Environment.Settings
 {
 	[SuppressMessage("ReSharper", "ClassWithVirtualMembersNeverInherited.Global", Justification = "Allow to be provided at deployment time.")]
 	public class BizTalkFactory : EnvironmentSettings<BizTalkFactory>, IEnvironmentSettings

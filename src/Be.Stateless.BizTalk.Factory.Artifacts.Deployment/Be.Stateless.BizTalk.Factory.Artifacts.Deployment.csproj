@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <PackageReference Include="$(ExcludedBizTalkFactoryAssets)" Version="2.*" ExcludeAssets="all" />
-    <PackageReference Include="log4net" Version="2.*" ExcludeAssets="all" />
+    <PackageReference Include="log4net" Version="2.0.12" ExcludeAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

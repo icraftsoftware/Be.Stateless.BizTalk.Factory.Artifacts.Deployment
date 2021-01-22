@@ -21,12 +21,12 @@ using Be.Stateless.BizTalk.Dsl.Binding.Convention.Simple;
 
 namespace Be.Stateless.BizTalk
 {
-	public class DummyReceivePort : ReceivePort<NamingConvention>
+	internal class OneWayReceivePortStub : ReceivePort<NamingConvention>
 	{
-		public DummyReceivePort()
+		public OneWayReceivePortStub()
 		{
-			Name = ReceivePortName.Offwards("Dummy");
-			ReceiveLocations.Add(new DummyMessageReceiveLocation());
+			Name = ReceivePortName.Offwards("Stub");
+			ReceiveLocations.Add(new OneWayReceiveLocationStub());
 		}
 	}
 }

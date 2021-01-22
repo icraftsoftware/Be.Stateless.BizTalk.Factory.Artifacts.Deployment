@@ -21,15 +21,15 @@ using Be.Stateless.BizTalk.Dsl.Binding;
 using Be.Stateless.BizTalk.Dsl.Binding.Adapter;
 using Be.Stateless.BizTalk.Dsl.Binding.Convention;
 using Be.Stateless.BizTalk.Dsl.Binding.Convention.Simple;
+using Be.Stateless.BizTalk.Factory.Environment.Settings;
 using Be.Stateless.BizTalk.MicroComponent;
 using Be.Stateless.BizTalk.MicroPipelines;
-using Be.Stateless.BizTalk.Settings;
 
 namespace Be.Stateless.BizTalk
 {
-	public class DummyMessageReceiveLocation : ReceiveLocation<NamingConvention>
+	internal class OneWayReceiveLocationStub : ReceiveLocation<NamingConvention>
 	{
-		public DummyMessageReceiveLocation()
+		public OneWayReceiveLocationStub()
 		{
 			Name = ReceiveLocationName.About("Message").FormattedAs.Xml;
 			Enabled = true;
