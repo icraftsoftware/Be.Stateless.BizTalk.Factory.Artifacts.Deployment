@@ -17,7 +17,7 @@
 #endregion
 
 using System.Diagnostics.CodeAnalysis;
-using Be.Stateless.BizTalk.Install.Settings;
+using Be.Stateless.BizTalk.Dsl.Environment.Settings;
 
 namespace Be.Stateless.BizTalk.Settings
 {
