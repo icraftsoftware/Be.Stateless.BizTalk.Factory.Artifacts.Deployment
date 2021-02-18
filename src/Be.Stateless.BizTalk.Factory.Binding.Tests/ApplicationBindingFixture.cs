@@ -20,6 +20,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Be.Stateless.BizTalk.Dsl.Binding;
+using Be.Stateless.BizTalk.Explorer;
 using Be.Stateless.BizTalk.Factory.Environment.Settings;
 using FluentAssertions;
 using Xunit;
@@ -29,11 +30,12 @@ namespace Be.Stateless.BizTalk
 {
 	public class ApplicationBindingFixture : ApplicationBindingFixture<ApplicationBinding>
 	{
-		[Theory]
+		[SkippableTheory]
 		[InlineData("DEV")]
 		[InlineData("BLD")]
 		public void GenerateApplicationBinding(string targetEnvironment)
 		{
+			Skip.IfNot(BizTalkServerGroup.IsConfigured);
 			Action(() => GenerateApplicationBindingForTargetEnvironment(targetEnvironment)).Should().NotThrow();
 		}
 
