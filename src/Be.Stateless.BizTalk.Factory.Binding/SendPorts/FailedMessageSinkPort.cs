@@ -49,7 +49,7 @@ namespace Be.Stateless.BizTalk
 						});
 				});
 			Transport.Adapter = new FileAdapter.Outbound(a => { a.DestinationFolder = @"C:\Files\Drops\BizTalk.Factory\Failures"; });
-			Transport.Host = BizTalkFactory.Settings.TransmitHost;
+			Transport.Host = BizTalkFactory.Settings.TransmittingHost;
 			Transport.RetryPolicy = RetryPolicy.RealTime;
 			Filter = new Filter(() => ErrorReportProperties.ErrorType == "FailedMessage");
 		}

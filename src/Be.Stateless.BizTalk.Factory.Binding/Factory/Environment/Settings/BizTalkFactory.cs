@@ -18,11 +18,13 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Be.Stateless.BizTalk.Dsl.Environment.Settings;
+using Be.Stateless.BizTalk.Dsl.Environment.Settings.Convention;
+using Be.Stateless.BizTalk.Install;
 
 namespace Be.Stateless.BizTalk.Factory.Environment.Settings
 {
-	[SuppressMessage("ReSharper", "ClassWithVirtualMembersNeverInherited.Global", Justification = "Allow to be provided at deployment time.")]
-	public class BizTalkFactory : EnvironmentSettings<BizTalkFactory>, IEnvironmentSettings
+	[SuppressMessage("ReSharper", "UnusedMember.Local")]
+	public class BizTalkFactory : CompositeEnvironmentSettings<BizTalkFactory, IPlatformEnvironmentSettings>, IPlatformEnvironmentSettings, IEnvironmentSettings
 	{
 		#region IEnvironmentSettings Members
 
@@ -30,8 +32,31 @@ namespace Be.Stateless.BizTalk.Factory.Environment.Settings
 
 		#endregion
 
-		public virtual string ReceiveHost => "BizTalkServerApplication";
+		#region IPlatformEnvironmentSettings Members
 
-		public virtual string TransmitHost => "BizTalkServerApplication";
+		public string IsolatedHost => "BizTalkServerIsolatedHost";
+
+		public string ManagementDatabaseInstance => string.Empty;
+
+		public string ManagementDatabaseServer => "localhost";
+
+		public string MonitoringDatabaseInstance => string.Empty;
+
+		public string MonitoringDatabaseServer => "localhost";
+
+		public string ProcessingDatabaseInstance => string.Empty;
+
+		public string ProcessingDatabaseServer => "localhost";
+
+		public string ProcessingHost => "BizTalkServerApplication";
+
+		public string ReceivingHost => "BizTalkServerApplication";
+
+		public string TransmittingHost => "BizTalkServerApplication";
+
+		#endregion
+
+		[SsoSetting]
+		private string TargetEnvironment => DeploymentContext.TargetEnvironment;
 	}
 }

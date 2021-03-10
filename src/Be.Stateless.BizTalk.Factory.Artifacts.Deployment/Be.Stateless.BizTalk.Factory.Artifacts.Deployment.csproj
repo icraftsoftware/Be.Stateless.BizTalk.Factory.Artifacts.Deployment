@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <ExcludedBizTalkFactoryAssets>
+    <ExcludedBizTalkFactoryPackages>
       Be.Stateless.BizTalk.Abstractions;
       Be.Stateless.BizTalk.Messaging;
       Be.Stateless.BizTalk.Pipeline.MicroComponents;
@@ -16,7 +16,7 @@
       Be.Stateless.Common;
       Be.Stateless.Stream;
       Be.Stateless.Xml
-    </ExcludedBizTalkFactoryAssets>
+    </ExcludedBizTalkFactoryPackages>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="$(ExcludedBizTalkFactoryAssets)" Version="2.*" ExcludeAssets="all" />
-    <PackageReference Include="log4net" Version="2.0.12" ExcludeAssets="all" />
+    <PackageReference Include="$(ExcludedBizTalkFactoryPackages)" Version="2.*" Publish="false" />
+    <PackageReference Include="log4net" Version="2.0.12" Publish="false" />
   </ItemGroup>
 
   <ItemGroup>

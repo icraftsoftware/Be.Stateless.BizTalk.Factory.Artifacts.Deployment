@@ -44,7 +44,7 @@ namespace Be.Stateless.BizTalk
 						});
 				});
 			Transport.Adapter = new FileAdapter.Inbound(a => { a.ReceiveFolder = @"C:\Files\Drops\BizTalk.Factory\In"; });
-			Transport.Host = BizTalkFactory.Settings.ReceiveHost;
+			Transport.Host = BizTalkFactory.Settings.ReceivingHost;
 		}
 	}
 }

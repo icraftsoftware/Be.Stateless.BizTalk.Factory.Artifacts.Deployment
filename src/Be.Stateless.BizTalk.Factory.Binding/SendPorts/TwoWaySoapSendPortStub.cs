@@ -36,7 +36,7 @@ namespace Be.Stateless.BizTalk
 			SendPipeline = new SendPipeline<XmlTransmit>();
 			ReceivePipeline = new ReceivePipeline<XmlReceive>();
 			Transport.Adapter = new WcfBasicHttpAdapter.Outbound(a => { a.Address = new EndpointAddress("http://localhost:8000/soap-stub"); });
-			Transport.Host = BizTalkFactory.Settings.TransmitHost;
+			Transport.Host = BizTalkFactory.Settings.TransmittingHost;
 			Transport.RetryPolicy = RetryPolicy.RealTime;
 		}
 	}
