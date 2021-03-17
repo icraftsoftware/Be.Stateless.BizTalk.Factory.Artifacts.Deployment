@@ -13,7 +13,8 @@
       Be.Stateless.BizTalk.Stream;
       Be.Stateless.BizTalk.Xml;
       Be.Stateless.Extensions;
-      Be.Stateless.Common;
+      Be.Stateless.Reflection;
+      Be.Stateless.Security;
       Be.Stateless.Stream;
       Be.Stateless.Xml
     </ExcludedBizTalkFactoryPackages>
@@ -21,17 +22,13 @@
 
   <ItemGroup>
     <PackageReference Include="Be.Stateless.BizTalk.Pipeline.Components" Version="2.0.21073.35253" />
-    <PackageReference Include="Be.Stateless.BizTalk.Pipelines" Version="2.0.21073.36138" />
-    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21073.35244" />
+    <PackageReference Include="Be.Stateless.BizTalk.Pipelines" Version="2.0.21084.41469" />
+    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21084.39753" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="$(ExcludedBizTalkFactoryPackages)" Version="2.*" Publish="false" />
-    <PackageReference Include="log4net" Version="2.0.12" Publish="false" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Be.Stateless.BizTalk.Factory.Binding\Be.Stateless.BizTalk.Factory.Binding.csproj" />
+    <PackageReference Include="$(ExcludedBizTalkFactoryPackages)" Version="2.*" ExcludeAssets="runtime" />
+    <PackageReference Include="log4net" Version="2.0.12" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <ItemGroup>

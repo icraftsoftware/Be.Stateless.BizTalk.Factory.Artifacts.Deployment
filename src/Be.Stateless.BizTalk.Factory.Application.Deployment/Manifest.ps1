@@ -43,23 +43,18 @@ param(
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
    [string]
-   $EnvironmentSettingOverridesType,
-
-   [Parameter(Mandatory = $false)]
-   [ValidateNotNullOrEmpty()]
-   [string]
    $ManagementServer = $env:COMPUTERNAME,
 
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
    [string]
-   $ProcessingServer = $env:COMPUTERNAME,
+   $ProcessingServer = $env:COMPUTERNAME
 
-   [Parameter(Mandatory = $false)]
-   [ValidateNotNullOrEmpty()]
-   [string[]]
+   # [Parameter(Mandatory = $false)]
+   # [ValidateNotNullOrEmpty()]
+   # [string[]]
    # TODO this is a global variable ; it should be bound to some resource
-   $FileAdapterFolderUsers
+   # TODO $FileAdapterFolderUsers
 )
 
 Set-StrictMode -Version Latest
@@ -70,8 +65,7 @@ $SqlDatabaseVariables = @{
    BizTalkServerAdministratorGroup = "$Domain\$BizTalkAdministratorGroup"
 }
 
-ApplicationManifest -Name BizTalk.Factory -Description 'BizTalk.Factory''s BizTalk Server Artifacts.' -Build {
-   Binding -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Factory.Binding) -EnvironmentSettingOverridesType $EnvironmentSettingOverridesType
+ApplicationManifest -Name BizTalk.Factory -Description 'BizTalk.Factory System Application.' -Build {
    Component -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Pipeline.Components)
    Pipeline -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Pipelines)
    Schema -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Schemas)
