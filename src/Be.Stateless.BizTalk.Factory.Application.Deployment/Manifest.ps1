@@ -49,12 +49,6 @@ param(
    [ValidateNotNullOrEmpty()]
    [string]
    $ProcessingServer = $env:COMPUTERNAME
-
-   # [Parameter(Mandatory = $false)]
-   # [ValidateNotNullOrEmpty()]
-   # [string[]]
-   # TODO this is a global variable ; it should be bound to some resource
-   # TODO $FileAdapterFolderUsers
 )
 
 Set-StrictMode -Version Latest
@@ -71,8 +65,7 @@ ApplicationManifest -Name BizTalk.Factory -Description 'BizTalk.Factory System A
    Schema -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Schemas)
    SqlDatabase -Path $PSScriptRoot\sql\scripts -Name BizTalkFactoryMgmtDb -EnlistInBizTalkBackupJob -Server $ManagementServer -Variables $SqlDatabaseVariables
    SqlDatabase -Path $PSScriptRoot\sql\scripts -Name BizTalkFactoryTransientStateDb -EnlistInBizTalkBackupJob -Server $ProcessingServer -Variables $SqlDatabaseVariables
-   SsoConfigStore -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Factory.Binding) `
+   SsoConfigStore -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Dsl.Binding.Conventions) `
       -AdministratorGroups $BizTalkAdministratorGroup `
-      -UserGroups $BizTalkApplicationUserGroup, $BizTalkIsolatedHostUserGroup `
-      -EnvironmentSettingOverridesType $EnvironmentSettingOverridesType
+      -UserGroups $BizTalkApplicationUserGroup, $BizTalkIsolatedHostUserGroup
 }

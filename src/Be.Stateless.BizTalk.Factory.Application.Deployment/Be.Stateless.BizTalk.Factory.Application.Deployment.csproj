@@ -8,6 +8,11 @@
   <PropertyGroup>
     <ExcludedBizTalkFactoryPackages>
       Be.Stateless.BizTalk.Abstractions;
+      Be.Stateless.BizTalk.Dsl.Abstractions;
+      Be.Stateless.BizTalk.Dsl.Binding;
+      Be.Stateless.BizTalk.Dsl.Environment.Settings;
+      Be.Stateless.BizTalk.Dsl.Pipeline;
+      Be.Stateless.BizTalk.Explorer;
       Be.Stateless.BizTalk.Messaging;
       Be.Stateless.BizTalk.Pipeline.MicroComponents;
       Be.Stateless.BizTalk.Stream;
@@ -21,6 +26,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Be.Stateless.BizTalk.Dsl.Binding.Conventions" Version="2.0.21086.224" />
     <PackageReference Include="Be.Stateless.BizTalk.Pipeline.Components" Version="2.0.21073.35253" />
     <PackageReference Include="Be.Stateless.BizTalk.Pipelines" Version="2.0.21084.41469" />
     <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21084.39753" />
