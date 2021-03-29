@@ -23,22 +23,17 @@ param(
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
    [string]
-   $BizTalkAdministratorGroup = 'BizTalk Server Administrators',
+   $BizTalkAdministratorGroup = "$($env:COMPUTERNAME)\BizTalk Server Administrators",
 
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
    [string]
-   $BizTalkApplicationUserGroup = 'BizTalk Application Users',
+   $BizTalkApplicationUserGroup = "$($env:COMPUTERNAME)\BizTalk Application Users",
 
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
    [string]
-   $BizTalkIsolatedHostUserGroup = 'BizTalk Isolated Host Users',
-
-   [Parameter(Mandatory = $false)]
-   [ValidateNotNullOrEmpty()]
-   [string]
-   $Domain = $env:COMPUTERNAME,
+   $BizTalkIsolatedHostUserGroup = "$($env:COMPUTERNAME)\BizTalk Isolated Host Users",
 
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
@@ -53,18 +48,18 @@ param(
 
 Set-StrictMode -Version Latest
 
-$SqlDatabaseVariables = @{
-   BizTalkApplicationUserGroup     = "$Domain\$BizTalkApplicationUserGroup"
-   BizTalkIsolatedHostUserGroup    = "$Domain\$BizTalkIsolatedHostUserGroup"
-   BizTalkServerAdministratorGroup = "$Domain\$BizTalkAdministratorGroup"
+$sqlScriptVariables = @{
+   BizTalkApplicationUserGroup     = $BizTalkApplicationUserGroup
+   BizTalkIsolatedHostUserGroup    = $BizTalkIsolatedHostUserGroup
+   BizTalkServerAdministratorGroup = $BizTalkAdministratorGroup
 }
 
 ApplicationManifest -Name BizTalk.Factory -Description 'BizTalk.Factory System Application.' -Build {
    Component -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Pipeline.Components)
    Pipeline -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Pipelines)
    Schema -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Schemas)
-   SqlDatabase -Path $PSScriptRoot\sql\scripts -Name BizTalkFactoryMgmtDb -EnlistInBizTalkBackupJob -Server $ManagementServer -Variables $SqlDatabaseVariables
-   SqlDatabase -Path $PSScriptRoot\sql\scripts -Name BizTalkFactoryTransientStateDb -EnlistInBizTalkBackupJob -Server $ProcessingServer -Variables $SqlDatabaseVariables
+   SqlDatabase -Path $PSScriptRoot\sql\scripts -Name BizTalkFactoryMgmtDb -EnlistInBizTalkBackupJob -Server $ManagementServer -Variables $sqlScriptVariables
+   SqlDatabase -Path $PSScriptRoot\sql\scripts -Name BizTalkFactoryTransientStateDb -EnlistInBizTalkBackupJob -Server $ProcessingServer -Variables $sqlScriptVariables
    SsoConfigStore -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Dsl.Binding.Conventions) `
       -AdministratorGroups $BizTalkAdministratorGroup `
       -UserGroups $BizTalkApplicationUserGroup, $BizTalkIsolatedHostUserGroup

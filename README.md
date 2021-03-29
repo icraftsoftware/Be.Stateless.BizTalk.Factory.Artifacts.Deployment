@@ -7,4 +7,4 @@ Deployment package for BizTalk Factory System Application.
 
 ## Deployment Package
 
-[![Deployment Package](https://img.shields.io/github/v/release/icraftsoftware/Be.Stateless.BizTalk.Factory.Application?label=Be.Stateless.BizTalk.Factory.Application.zip&style=flat)](https://github.com/icraftsoftware/Be.Stateless.BizTalk.Factory.Application/releases/latest/download/Be.Stateless.BizTalk.Factory.Application.zip)
+[![Deployment Package](https://img.shields.io/github/v/release/icraftsoftware/Be.Stateless.BizTalk.Factory.Application?label=Be.Stateless.BizTalk.Factory.Application.Deployment.zip&style=flat)](https://github.com/icraftsoftware/Be.Stateless.BizTalk.Factory.Application/releases/latest/download/Be.Stateless.BizTalk.Factory.Application.Deployment.zip)
