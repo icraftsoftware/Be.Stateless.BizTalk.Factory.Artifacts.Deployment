@@ -30,10 +30,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Dsl.Binding.Conventions" Version="2.0.21104.49560" />
+    <PackageReference Include="Be.Stateless.BizTalk.Dsl.Binding.Conventions" Version="2.0.21105.30665" />
     <PackageReference Include="Be.Stateless.BizTalk.Pipeline.Components" Version="2.0.21104.48675" />
-    <PackageReference Include="Be.Stateless.BizTalk.Pipelines" Version="2.0.21104.51094" />
-    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21104.50720" />
+    <PackageReference Include="Be.Stateless.BizTalk.Pipelines" Version="2.0.21105.33925" />
+    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21105.32078" />
   </ItemGroup>
 
   <ItemGroup>
