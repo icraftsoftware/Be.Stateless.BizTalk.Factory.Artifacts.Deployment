@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.Build.NoTargets/2.0.1">
+﻿<Project Sdk="Microsoft.Build.NoTargets/3.0.4">
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
@@ -6,14 +6,11 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <CopyOutputSymbolsToPublishDirectory>false</CopyOutputSymbolsToPublishDirectory>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <ExcludedBizTalkFactoryPackages>
       Be.Stateless.BizTalk.Abstractions;
       Be.Stateless.BizTalk.Dsl.Abstractions;
       Be.Stateless.BizTalk.Dsl.Binding;
+      Be.Stateless.BizTalk.Dsl.Binding.Conventions;
       Be.Stateless.BizTalk.Dsl.Environment.Settings;
       Be.Stateless.BizTalk.Dsl.Pipeline;
       Be.Stateless.BizTalk.Explorer;
@@ -30,7 +27,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Dsl.Binding.Conventions" Version="2.0.21105.30665" />
     <PackageReference Include="Be.Stateless.BizTalk.Pipeline.Components" Version="2.0.21104.48675" />
     <PackageReference Include="Be.Stateless.BizTalk.Pipelines" Version="2.0.21105.33925" />
     <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21105.32078" />
@@ -49,5 +45,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <Target Name="BeforePrepareForBuild" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <PublishDir>$(PublishDir)\$(FileVersion)\</PublishDir>
+    </PropertyGroup>
+  </Target>
 
 </Project>
