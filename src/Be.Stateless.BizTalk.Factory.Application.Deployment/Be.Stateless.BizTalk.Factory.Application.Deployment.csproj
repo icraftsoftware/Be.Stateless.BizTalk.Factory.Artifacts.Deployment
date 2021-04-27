@@ -29,12 +29,16 @@
   <ItemGroup>
     <PackageReference Include="Be.Stateless.BizTalk.Pipeline.Components" Version="2.0.21104.48675" />
     <PackageReference Include="Be.Stateless.BizTalk.Pipelines" Version="2.0.21105.33925" />
-    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21105.32078" />
+    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21117.34075" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="$(ExcludedBizTalkFactoryPackages)" Version="2.*" ExcludeAssets="runtime" />
     <PackageReference Include="log4net" Version="2.0.12" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Be.Stateless.BizTalk.Factory.Settings\Be.Stateless.BizTalk.Factory.Settings.csproj" />
   </ItemGroup>
 
   <ItemGroup>

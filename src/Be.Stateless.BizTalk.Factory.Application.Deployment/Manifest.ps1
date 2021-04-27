@@ -60,7 +60,7 @@ ApplicationManifest -Name BizTalk.Factory -Description 'BizTalk.Factory System A
    Schema -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Schemas)
    SqlDatabase -Path $PSScriptRoot\sql\scripts -Name BizTalkFactoryMgmtDb -EnlistInBizTalkBackupJob -Server $ManagementServer -Variables $sqlScriptVariables
    SqlDatabase -Path $PSScriptRoot\sql\scripts -Name BizTalkFactoryTransientStateDb -EnlistInBizTalkBackupJob -Server $ProcessingServer -Variables $sqlScriptVariables
-   SsoConfigStore -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Dsl.Binding.Conventions) `
+   SsoConfigStore -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Factory.Settings) `
       -AdministratorGroups $BizTalkAdministratorGroup `
       -UserGroups $BizTalkApplicationUserGroup, $BizTalkIsolatedHostUserGroup
 }
